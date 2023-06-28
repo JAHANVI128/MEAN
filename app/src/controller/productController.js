@@ -1,15 +1,15 @@
 var products = []
 
-let p1 = {
-    "productId":123,
-    "productName":"Legion y520",
-    "price":120000,
-    "qty":15
-}
+// let p1 = {
+//     "productId":123,
+//     "productName":"Legion y520",
+//     "price":120000,
+//     "qty":15
+// }
 
-products.push(p1)
+// products.push(p1)
 
-console.log("products loaded -> ",products);
+// console.log("products loaded -> ",products);
 
 function addProduct(req,res){
     let productName = req.body.productName

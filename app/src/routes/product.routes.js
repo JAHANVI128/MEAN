@@ -5,7 +5,7 @@ const productControllerDb = require("../controller/productControllerDb")
 const route = express.Router()
 
 route.post("/addproduct2",productController.addProduct)
-route.get("/product",productController.getAllProducts)
+route.get("/product",productControllerDb.getAllProducts)
 route.get("/product/:productId",productControllerDb.getProductById)
 route.delete("/product/:productId",productController.deleteProductById)
 route.post("/products/filter",productControllerDb.filterProducts)

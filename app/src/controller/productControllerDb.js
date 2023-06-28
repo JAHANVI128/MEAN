@@ -27,20 +27,31 @@ module.exports.addProduct = function (req, res) {
 
 module.exports.getAllProducts = function (req, res) {
 
-    ProductModel.find().populate("categoryId").exec().then((data) => {
-        res.json({
-            "msg": "Product List",
-            "data": data,
-            "rcode": 200
+    // console.log(req.headers.token);
+
+    // if(req.headers.token == undefined || req.headers.token != 123){
+    //     res.json({
+    //         "msg": "Please login before accessing the service",
+    //         "rcode":-9,
+    //         data:""
+    //     })
+    // }else{
+        ProductModel.find().populate("categoryId").exec().then((data) => {
+            res.json({
+                "msg": "Product List",
+                "data": data,
+                "rcode": 200
+            })
+        }).catch((err) => {
+            console.log(err);
+            res.json({
+                "msg": "Something want wrong",
+                "data": err,
+                "rcode": -9
+            })
         })
-    }).catch((err) => {
-        console.log(err);
-        res.json({
-            "msg": "Something want wrong",
-            "data": err,
-            "rcode": -9
-        })
-    })
+    // }
+
 }
 
 module.exports.getProductById = function(req,res) {
