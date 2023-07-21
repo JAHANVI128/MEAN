@@ -1,4 +1,6 @@
 const UserModel = require("../model/userModel")
+const jwt = require("jsonwebtoken")
+const {SEC_KEY} = process.env
 
 //signup
 
@@ -41,14 +43,24 @@ module.exports.login = async function(req,res){
         //     //success
         // console.log("2");
 
-        token = parseInt(Math.random()*100000000000)
-        console.log("token"+token);
-        user.token = token 
+        // token = parseInt(Math.random()*100000000000)
+
+        token = jwt.sign({
+            "email":user.email,
+            "userId":user._id,
+            "role":"user"
+        },SEC_KEY)
+        console.log("token :"+token);
+        // user.token = token 
         // user.email = "xx"
+
+        // user.token = token
+
         res.json({
             data:user,
             msg:"Login done",
-            rcode:200
+            rcode:200,
+            token:token
         })
         // }
     }else{
