@@ -46,10 +46,14 @@ module.exports.login = async function(req,res){
         // token = parseInt(Math.random()*100000000000)
 
         token = jwt.sign({
-            "email":user.email,
-            "userId":user._id,
-            "role":"user"
-        },SEC_KEY)
+            // "email":user.email,
+            "authId":user._id,
+            // "authority":"kdjf283rfhiughs92rakd"
+            "authority":"user"
+            // "role":"user"
+        },SEC_KEY,{
+            expiresIn:"7d"
+        })
         console.log("token :"+token);
         // user.token = token 
         // user.email = "xx"
