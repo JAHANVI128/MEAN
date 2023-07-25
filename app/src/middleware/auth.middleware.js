@@ -20,6 +20,8 @@ module.exports = function(req,res,next){
         }
     })
 
+    // token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOiI2NDY4YzkwMmUyZmQ5NjQ3NGIzNjY3NTYiLCJpYXQiOjE2OTAwMjA0NzB9.BIOEHyIE3M-EP5dj3_McV7L3KTjTV44AHAMmmKK2PqI
+    
     // if(req.headers.token == undefined || req.headers.token != 123){
     //     console.log("auth : fail")
     //     // res.json({
